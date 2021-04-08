@@ -20,12 +20,13 @@ def res_fun():
         age_ent.grid(row = 4, column = 1, padx = 10, pady = 10)
         phone_ent.grid(row = 5, column = 1, padx = 10, pady = 10)
 
-        count = 2
-        if r.get() == 1:
+        
+    if r.get() == 1:
              try:
-                 with open('test.csv','w') as csvfile:
+                 with open('test.csv','a') as csvfile:
                      pass
                  with open('test.csv','r') as csvfile:
+                     count = 2
                      csvreader = csv.reader(csvfile)
                      fields = next(csvreader)
                      for row in csvreader:
