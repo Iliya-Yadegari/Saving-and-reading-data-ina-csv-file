@@ -1,7 +1,6 @@
 import csv
 from tkinter import *
 
-
 def res_fun():
     
     if r.get() == 2:
@@ -21,7 +20,6 @@ def res_fun():
         age_ent.grid(row = 4, column = 1, padx = 10, pady = 10)
         phone_ent.grid(row = 5, column = 1, padx = 10, pady = 10)
 
-
         count = 2
         if r.get() == 1:
              try:
@@ -32,7 +30,7 @@ def res_fun():
                      fields = next(csvreader)
                      for row in csvreader:
                          count = count+1
-                         read_lbl = Label(window,text = row).grid(row = count,column = 0, padx = 10, pady = 10)  
+                         read_lbl = Label(window,text = row).grid(row = count,column = 0, padx = 10, pady = 10)
              except StopIteration:
                  pass
 
@@ -40,14 +38,11 @@ def get_2():
         fields = ['name','age','phone number']
         rows = [name_ent.get(),age_ent.get(),phone_ent.get()]
         
-        with open('test.csv','w') as csvfile:
+        with open('test.csv','a') as csvfile:
             csvwriter = csv.writer(csvfile)
             
             csvwriter.writerow(fields)
-            csvwriter.writerow(rows)
-
-
-  
+            csvwriter.writerow(rows) 
 
 window = Tk()
 
