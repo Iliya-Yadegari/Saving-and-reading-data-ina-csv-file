@@ -1,6 +1,11 @@
 import csv
 from tkinter import *
 
+window = Tk()
+
+window.title('Csv file reading and writing')
+window.iconbitmap('paper.ico')
+
 def res_fun():
     
     if r.get() == 2:
@@ -44,10 +49,6 @@ def get_2():
             
             csvwriter.writerow(fields)
             csvwriter.writerow(rows) 
-
-window = Tk()
-
-window.title('Storage')
 
 r = IntVar()
 
