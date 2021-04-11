@@ -1,5 +1,6 @@
 import csv
 from tkinter import *
+import CSVFunModule as cfm
 
 window = Tk()
 
@@ -19,7 +20,7 @@ def res_fun():
         phone_label = Label(window,text = 'Enter your phone number ===>').grid(row = 5, column = 0, padx = 10, pady = 10)
         global phone_ent
         phone_ent = Entry(window)
-        submit_btn = Button(window,text = 'Submit',width = 20,height = 3,command = get_2).grid(row = 63, column = 0, padx = 10, pady = 10)
+        submit_btn = Button(window,text = 'Submit',width = 20,height = 3,command = cfm.get_2).grid(row = 63, column = 0, padx = 10, pady = 10)
         
         name_ent.grid(row = 3, column = 1, padx = 10, pady = 10)
         age_ent.grid(row = 4, column = 1, padx = 10, pady = 10)
@@ -37,18 +38,15 @@ def res_fun():
                      for row in csvreader:
                          count = count+1
                          read_lbl = Label(window,text = row).grid(row = count,column = 0, padx = 10, pady = 10)
+                 with open('test.csv','a') as csvfile:      
+                     csvwriter = csv.writer(csvfile)
+                     rows = [name_ent.get(),age_ent.get(),phone_ent.get()]
+                     csvwriter.writerow(rows) 
+                         
              except StopIteration:
                  pass
-
-def get_2():
-        fields = ['name','age','phone number']
-        rows = [name_ent.get(),age_ent.get(),phone_ent.get()]
-        
-        with open('test.csv','a') as csvfile:
-            csvwriter = csv.writer(csvfile)
-            
-            csvwriter.writerow(fields)
-            csvwriter.writerow(rows) 
+             
+             
 
 r = IntVar()
 
