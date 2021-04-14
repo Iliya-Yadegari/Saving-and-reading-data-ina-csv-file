@@ -21,6 +21,9 @@ def res_fun(value,w):
         phone_ent.grid(row = 5, column = 1, padx = 10, pady = 10)
 
 
+
+
+
     if value == 1:
              try:
                  with open('test.csv','a') as csvfile:
@@ -32,10 +35,7 @@ def res_fun(value,w):
                      for row in csvreader:
                          count = count+1
                          read_lbl = Label(w,text = row).grid(row = count,column = 0, padx = 10, pady = 10)
-                 with open('test.csv','a') as csvfile:
-                     csvwriter = csv.writer(csvfile)
-                     rows = [name_ent.get(),age_ent.get(),phone_ent.get()]
-                     csvwriter.writerow(rows)
+
                          
              except StopIteration:
                  pass
@@ -49,3 +49,7 @@ def get_2():
             csvwriter = csv.writer(csvfile)
             
             csvwriter.writerow(fields)
+            rows = [name_ent.get(),age_ent.get(),phone_ent.get()]
+            csvwriter.writerow(rows)        
+
+            
